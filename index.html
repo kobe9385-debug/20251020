@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>點擊泡泡</title>
+    <!-- Load Tailwind CSS for simple styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load p5.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
+    <!-- Load p5.sound.js library to handle MP3 files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/addons/p5.sound.js"></script>
+    
+    <style>
+        /* Ensure canvas fills the entire window and removes default margins */
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(162, 163, 187); /* #a2a3bb */
+            font-family: 'Inter', sans-serif;
+            position: relative;
+        }
+        /* p5.js canvas style */
+        canvas {
+            display: block;
+        }
+        /* Audio start overlay style */
+        #audio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(162, 163, 187, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            transition: opacity 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container" class="w-full h-full">
+        <!-- p5.js canvas will be inserted here -->
+    </div>
+
+    <!-- Audio activation interface -->
+    <div id="audio-overlay" class="rounded-lg p-8 shadow-2xl">
+        <h2 class="text-xl text-white font-bold mb-4">點擊泡泡</h2>
+        <p class="text-sm text-yellow-300 mt-2 mb-4">目標:點擊正確的泡泡以取得高分</p>
+        <button onclick="startAudio()" 
+                class="px-6 py-3 bg-white text-gray-800 font-semibold rounded-full shadow-lg hover:bg-gray-100 transition duration-300 transform hover:scale-105">
+            開始遊戲
+        </button>
+    </div>
+
+    <!-- Load the main sketch file -->
+    <script src="sketch.js"></script>
+</body>
+</html>
